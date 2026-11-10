@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-blue: #034BAE;
+    --color-blue-tint: #E8F0FC;
+    --color-orange: #FF7420;
+    --color-orange-tint: #FFF1E8;
+    --color-yellow: #FFC93C;
+    --color-yellow-tint: #FFF6D6;
+    --color-tosca: #0FA3A3;
+    --color-tosca-tint: #DDF5F3;
+    --color-purple: #6D4AFF;
+    --color-purple-tint: #EEE9FF;
+    --color-coral: #FF5C7A;
+    --color-coral-tint: #FFE6EB;
+    --color-navy: #0B1F4D;
+    --color-neutral: #F5F7FA;
+    --color-border: #E3E8EF;
+    --font-plus-jakarta: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  body {
+    @apply bg-white text-ink-main antialiased font-sans;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Headings scale and weights */
+  h1 {
+    @apply font-heading font-extrabold text-[#0B1F4D] tracking-tight;
+  }
+  h2 {
+    @apply font-heading font-extrabold text-[#0B1F4D] tracking-tight;
+  }
+  h3 {
+    @apply font-heading font-bold text-[#0B1F4D];
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F5F7FA;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+}
+
+/* Animations respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: floatGentle 4s ease-in-out infinite;
+}
